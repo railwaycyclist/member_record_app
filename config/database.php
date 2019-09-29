@@ -18,6 +18,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
+    'default' => env('DB_CONNECTION', 'herokupgsql'),
+=======
+    'default' => env('DB_CONNECTION', 'pgsql'),
+>>>>>>> 43fc6f7f2513d1a9786b6ea166e832d209adb3a1
 
     /*
     |--------------------------------------------------------------------------
