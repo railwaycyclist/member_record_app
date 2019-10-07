@@ -1,5 +1,5 @@
 <?php
-// laravel 5.5は以下の2行のように書く
+// laravel 5.5～5.8のディレクトリ構成
 use App\Member;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +20,7 @@ Route::get('/', function () {
 */
 
 Route::get('/', function() {
-	// ユーザー認証データを格納
+	// ユーザー認証データを呼び出し
 	$user = Auth::user();
 	$members = Member::all();
 	$columns = Schema::getColumnListing('table_name');
@@ -46,7 +46,7 @@ Route::get('/edit/{member}', function(Member $member) {
 });
 
 // 認証機能のルーティング
-Auth::routes();
+Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Implicit Binding
