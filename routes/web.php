@@ -20,7 +20,7 @@ Route::get('/', function () {
 */
 
 Route::get('/', function() {
-	// ユーザー認証データを呼び出し
+	// 1行目でユーザー認証データを呼び出し
 	$user = Auth::user();
 	$members = Member::all();
 	$columns = Schema::getColumnListing('table_name');
