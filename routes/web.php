@@ -45,9 +45,12 @@ Route::get('/edit/{member}', function(Member $member) {
 	return view('edit', ['member' => $member]);
 });
 
+
+
 // 認証機能のルーティング
 Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
+
 
 // Implicit Binding
 Route::post('/member-create', function(Request $request) {
@@ -63,7 +66,8 @@ Route::post('/member-create', function(Request $request) {
 	}
 
 	$member = new Member; // Eloquent ORM
-	$member->membername = $request->name; // $request->nameのnameはformのname属性と一致させる、また$member->membernameのmembernameはデータベースのカラムと一致させる
+	$member->membername = $request->name; 
+	// $request->nameのnameはformのname属性と一致させる、また$member->membernameのmembernameはデータベースのカラムと一致させる
 	$member->save();
 
 	return redirect('/');
